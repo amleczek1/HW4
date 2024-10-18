@@ -13,6 +13,7 @@
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 class HashingProblems {
@@ -123,11 +124,20 @@ class HashingProblems {
       for(int i: numbers)//loops through array
       {
           store.add(i);//populates hashset
-          if(store.contains(i+k)||store.contains(i-k))
+   
+                  
+      }
+      Iterator<Integer> i = store.iterator();
+      int minus = 0, plus;
+      while(i.hasNext()){
+          minus = i.next()+k;
+          plus = i.next()-k;
+      
+      
+          if(store.contains(minus)||store.contains(plus))
           {
               count+=1;
           }
-                  
       }
       return count;
   }
