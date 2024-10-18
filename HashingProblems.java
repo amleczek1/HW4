@@ -1,5 +1,5 @@
 /*
- * *** YOUR NAME GOES HERE / YOUR SECTION NUMBER ***
+ * *** Adrian Mleczek--001***
  *
  * This HashingProblems object contains three methods / problems that you must
  * complete utilize the HashMap object within the Java's Collection Framework Library.
@@ -40,8 +40,17 @@ class HashingProblems {
          * returning 0.0 is NOT correct, as that is not the average value. Whereas
          * returning 0.0/0.0 IS correct (which would return a non-number).
          */
+        double sum=0, count = 0;
+        for(int x : array)//iterates through array
+        {
+            if(map.containsKey(x))//if a matching value is found
+            {
+                sum += map.get(x);//add to sum of value
+                count +=1;//add to count of values
+            }
+        }
 
-         return 0.0 / 0.0;
+         return sum / count;
   }
 
 
@@ -109,8 +118,18 @@ class HashingProblems {
       /*
        * ADD YOUR CODE HERE
        */
-
-      return -1;
+      int count = 0;
+      HashSet<Integer> store = new HashSet<>();//hashset because quick and easy :)
+      for(int i: numbers)//loops through array
+      {
+          store.add(i);//populates hashset
+          if(store.contains(i+k)||store.contains(i-k))
+          {
+              count+=1;
+          }
+                  
+      }
+      return count;
   }
 
 } /* end class HashingProblems */
