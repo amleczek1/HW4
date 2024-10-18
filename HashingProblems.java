@@ -71,6 +71,13 @@ class HashingProblems {
        *
        * Hint: Consider iterating over the HashMap using the keySet method.
        */
+      for(int i: map.keySet())//iterate through the hashmap
+      {
+          if ( i % 2 != 0)//checks if odd
+          {
+              result.add(map.get(i));//adds value to array if odd
+          }
+      }
 
 
       return result;
@@ -120,23 +127,25 @@ class HashingProblems {
        * ADD YOUR CODE HERE
        */
       int count = 0;
-      HashSet<Integer> store = new HashSet<>();//hashset because quick and easy :)
+      HashSet<Integer> store = new HashSet<>();
       for(int i: numbers)//loops through array
       {
           store.add(i);//populates hashset
    
                   
       }
+      //create iterator
       Iterator<Integer> i = store.iterator();
       int minus = 0, plus;
-      while(i.hasNext()){
+      while(i.hasNext()){//iterates through hashset
+          //defines values k distance from the current
           minus = i.next()+k;
           plus = i.next()-k;
       
       
-          if(store.contains(minus)||store.contains(plus))
+          if(store.contains(minus)||store.contains(plus))//checks if said values exist in the map
           {
-              count+=1;
+              count+=1;//adds 1 to count if such values exist in the map
           }
       }
       return count;
